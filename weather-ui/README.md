@@ -4,7 +4,7 @@
 
 ### Introduction & Setup
 
-You will implement features for an [Angular 13](https://angular.io/) Frontend Application. The App shows weather stations that are fetched from the weather backend.
+You will implement features for an [Angular 13](https://angular.io/) Frontend Application. The App shows weather stations that are fetched from the weather backend. The Project comes with two UI Libraries. [Bootstrap 5](https://getbootstrap.com/) is for Basic Components like Buttons, Forms and Modals. [ng Bootstrap](https://ng-bootstrap.github.io/#/home) brings some tweaks to the bootrsap library so they can be used easier in Angular applications.
 
 #### What you need to start
 
@@ -21,22 +21,23 @@ You will implement features for an [Angular 13](https://angular.io/) Frontend Ap
 - [What is Angular?](https://angular.io/guide/what-is-angular)
 - [Bootstrap 5 Cheat Sheet](https://getbootstrap.com/docs/5.0/examples/cheatsheet/)
 - [CSS Cheat Sheet](https://htmlcheatsheet.com/css/)
+- [Ng Bootstrap](https://ng-bootstrap.github.io/#/components/accordion/examples)
 - [Angular](https://angular.io/guide/cheatsheet)
 
 ## Implementation
 
 ### Task Beginner: Implement APIs from the backend and modal
 
-This task is divided in two parts. The first part is to implement the CRUD Operations, so that the weather data can be manipulated with the frontend. The weather stations are already read from the Backend and since we won't update the stations we will not implement the update operation.
+This task is divided in two parts. The first part is to implement the CRUD Operations, so that the weather data can be manipulated with the frontend. The weather stations are already read from the Backend and since we won't update the stations we will not implement the update operation. We only need to implement `deleteStation`, `deleteAllStations` and `addStation`
 
 #### CRUD
 
 (What is CRUD?) [https://en.wikipedia.org/wiki/Create,_read,_update_and_delete]
-There are already 3 methods in the `app.component.ts` file which should call their respective API. The API implementation can be found in `weather-station.service.ts`.
+There are already 3 methods in the `app.component.ts` file which should call their respective API. The API implementation can be found in `weather-station.service.ts`. The changed weather stations should be fetched again when deleting an object.
 
 #### Delete Modal
 
-It is always nice to get asked if 'You really want to delete that object?' before deleting it. This task is to implement a modal that popups before deleting an object. Take a look how it is made when adding a weather station.
+It is always nice to get asked if 'You really want to delete that object?' before deleting it. This task is to implement a modal that popups before deleting an object. Take a look how it is made when deleting all weather stations.
 
 ### Task Advanced: Implement Weather Map API
 
