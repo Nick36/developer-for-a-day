@@ -19,4 +19,9 @@ public class Station extends PanacheEntity {
     this.name = name;
     return this;
   }
+
+  public static Station findByName(String name) {
+    return find("name", name).firstResult();
+  }
+
 }

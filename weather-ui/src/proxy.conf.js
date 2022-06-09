@@ -1,14 +1,14 @@
 const PROXY_CONFIG = [
   {
     context: ["/api/station", "/api/weather"],
-    target: "http://localhost:8200",
+    target: "http://172.20.233.223:8200",
     secure: false,
     changeOrigin: true,
     logLevel: "debug",
   },
   {
     context: ["/api/map"],
-    target: "http://localhost:8100",
+    target: "http://172.20.233.223:8100",
     secure: false,
     changeOrigin: true,
     logLevel: "debug",
