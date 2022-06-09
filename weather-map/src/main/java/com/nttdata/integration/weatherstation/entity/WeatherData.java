@@ -15,8 +15,18 @@ public class WeatherData {
     return temperature;
   }
 
+  public WeatherData withTemperature(int temperature) {
+    this.temperature = temperature;
+    return this;
+  }
+
   public TemperatureUnit getTemperatureUnit() {
     return temperatureUnit;
+  }
+
+  public WeatherData withTemperatureUnit(TemperatureUnit temperatureUnit) {
+    this.temperatureUnit = temperatureUnit;
+    return this;
   }
 
   public Clouds getClouds() {

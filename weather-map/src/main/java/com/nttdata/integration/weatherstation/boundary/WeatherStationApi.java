@@ -20,8 +20,8 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 @Produces("application/json")
 public interface WeatherStationApi {
   @GET
-  @Path("weather/{stationName}")
-  WeatherData getWeatherData(@PathParam("stationName") String stationName);
+  @Path("weather/{stationId}")
+  WeatherData getWeatherData(@PathParam("stationId") String stationID);
 
   @GET
   @Path("station")

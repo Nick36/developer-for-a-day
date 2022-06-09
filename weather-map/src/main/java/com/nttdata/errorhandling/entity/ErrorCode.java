@@ -2,6 +2,7 @@ package com.nttdata.errorhandling.entity;
 
 public enum ErrorCode {
 
+  INVALID_PARAMETER(400),
   BAD_REQUEST(400),
   INTERNAL_SERVER_ERROR(500),
   WEATHER_STATION_EXTERNAL_ERROR(500);
