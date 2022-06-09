@@ -44,12 +44,25 @@ export class AppComponent {
       'Are you sure you want to delete all Stations?';
     modalRef.result.then((result) => {
       if (result) {
-        // TODO Implement Delete All Stations
+        this.weatherStationService
+          .deleteAllWeatherStation()
+          .pipe(tap(() => this.triggerWeatherFetch.next(null)))
+          .subscribe();
       }
     });
   }
 
   onDeleteStation(stationId: string) {
-    // TODO Implement Delete Station
+    const modalRef = this.modalService.open(DeleteModalComponent);
+    modalRef.componentInstance.title = 'Delete Station ' + stationId;
+    modalRef.componentInstance.description = `Are you sure you want to delete Station ${stationId}?`;
+    modalRef.result.then((result) => {
+      if (result) {
+        this.weatherStationService
+          .deleteWeatherStation(stationId)
+          .pipe(tap(() => this.triggerWeatherFetch.next(null)))
+          .subscribe();
+      }
+    });
   }
 }
