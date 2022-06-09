@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "e516d1bc-0dbe-41db-97ac-939ab3c33c71",
+		"name": "developer-for-a-day",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16179756"
+	},
+	"item": [
+		{
+			"name": "weather station get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/station",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"station"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather station get by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/station/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"station",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather station post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/station/Pulpudeva",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"station",
+						"Pulpudeva"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather station delete by name",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/station/Berlin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"station",
+						"Berlin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather station delete all",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/station",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"station"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8200/api/weather/München",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"api",
+						"weather",
+						"München"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather map",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/api/map?temperatureUnit=fahrenheit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"api",
+						"map"
+					],
+					"query": [
+						{
+							"key": "temperatureUnit",
+							"value": "fahrenheit"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

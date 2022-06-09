@@ -1,0 +1,26 @@
+.card {
+  width: 741px;
+  background: #ffffff;
+  box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.123);
+  border-radius: 16px;
+  border: 0;
+}
+
+.temperature {
+  font-size: 100px;
+  font-weight: 500;
+}
+
+.temperature-unit {
+  position: relative;
+  top: 25px;
+  font-weight: 500;
+  vertical-align: top;
+  font-size: 30px;
+}
+
+.description {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+}

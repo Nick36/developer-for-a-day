@@ -1,0 +1,51 @@
+<ng-container [ngSwitch]="weather.clouds">
+  <ng-container *ngSwitchCase="'SUNNY'">
+    <ng-container *ngTemplateOutlet="sunny"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'CLOUDY'">
+    <ng-container *ngTemplateOutlet="cloudy"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'PART_CLOUDY'">
+    <ng-container *ngTemplateOutlet="part_cloudy"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'STORMY'">
+    <ng-container *ngTemplateOutlet="stormy"></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #sunny>
+  <div class="weather-sun">
+    <div class="sun">
+      <div class="rays"></div>
+      <div class="rays"></div>
+      <div class="rays"></div>
+      <div class="rays"></div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #cloudy>
+  <div class="weather-cloud">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+</ng-template>
+<ng-template #part_cloudy>
+  <div class="weather-cloudAndSun">
+    <div class="cloud"></div>
+    <div class="sun">
+      <div class="rays"></div>
+      <div class="rays"></div>
+      <div class="rays"></div>
+      <div class="rays"></div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #stormy>
+  <div class="weather-rain">
+    <div class="cloud"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+  </div>
+</ng-template>

@@ -1,0 +1,26 @@
+.header {
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.096);
+  background-color: white;
+  z-index: 10;
+}
+
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 16px;
+}
+
+.weather-card {
+  position: relative;
+}
+
+.weather-card .hidden-child {
+  visibility: hidden;
+}
+
+.weather-card:hover .hidden-child {
+  visibility: visible;
+}
