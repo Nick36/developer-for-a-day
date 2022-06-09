@@ -38,15 +38,15 @@
   <div class="mt-4 d-flex flex-column">
     <div
       class="align-self-center pb-4 weather-card"
-      *ngFor="let stationId of weatherStations | async"
+      *ngFor="let station of (weatherMap | async)?.weatherStations"
     >
-      <app-weather-card [stationId]="stationId"></app-weather-card>
+      <app-weather-card [station]="station"></app-weather-card>
       <div class="delete-button">
         <button
           button
           type="button"
           class="hidden-child col-auto btn btn-danger"
-          (click)="onDeleteStation(stationId)"
+          (click)="onDeleteStation(station.stationId)"
         >
           <i class="bi-trash"></i>
         </button>

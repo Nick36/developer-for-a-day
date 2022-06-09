@@ -1,3 +1,4 @@
+import { WeatherMap } from './models/weather-map.model';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,7 @@ import { WeatherStationService } from './services/weather-station.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  weatherStations: Observable<string[]>;
+  weatherMap: Observable<WeatherMap>;
   weatherForm = this.formBuilder.group({ station: ['', Validators.required] });
   triggerWeatherFetch = new Subject<null>();
 
@@ -20,9 +21,9 @@ export class AppComponent {
     private formBuilder: FormBuilder,
     private modalService: NgbModal
   ) {
-    this.weatherStations = this.triggerWeatherFetch.pipe(
+    this.weatherMap = this.triggerWeatherFetch.pipe(
       startWith(null),
-      switchMap(() => this.weatherStationService.getStations())
+      switchMap(() => this.weatherStationService.getStationsMap())
     );
   }
 
@@ -44,12 +45,25 @@ export class AppComponent {
       'Are you sure you want to delete all Stations?';
     modalRef.result.then((result) => {
       if (result) {
-        // TODO Implement Delete All Stations
+        this.weatherStationService
+          .deleteAllWeatherStation()
+          .pipe(tap(() => this.triggerWeatherFetch.next(null)))
+          .subscribe();
       }
     });
   }
 
   onDeleteStation(stationId: string) {
-    // TODO Implement Delete Station
+    const modalRef = this.modalService.open(DeleteModalComponent);
+    modalRef.componentInstance.title = 'Delete Station ' + stationId;
+    modalRef.componentInstance.description = `Are you sure you want to delete Station ${stationId}?`;
+    modalRef.result.then((result) => {
+      if (result) {
+        this.weatherStationService
+          .deleteWeatherStation(stationId)
+          .pipe(tap(() => this.triggerWeatherFetch.next(null)))
+          .subscribe();
+      }
+    });
   }
 }

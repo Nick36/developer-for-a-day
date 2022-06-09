@@ -12,15 +12,10 @@ import { WeatherStationService } from '../../services/weather-station.service';
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss'],
 })
-export class WeatherCardComponent implements OnInit {
-  @Input() stationId!: string;
-  station!: Observable<WeatherStation>;
+export class WeatherCardComponent {
+  @Input() station!: WeatherStation;
 
   constructor(private weatherStationService: WeatherStationService) {}
-
-  ngOnInit(): void {
-    this.station = this.weatherStationService.getWeatherStation(this.stationId);
-  }
 
   getTemperatureUnit(temperatureUnit: TemperatureUnit) {
     switch (temperatureUnit) {

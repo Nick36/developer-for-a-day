@@ -1,3 +1,4 @@
+import { WeatherMap } from './../models/weather-map.model';
 import { WeatherStation } from './../models/weather-station.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -7,6 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WeatherStationService {
   constructor(private http: HttpClient) {}
+
+  getStationsMap() {
+    return this.http.get<WeatherMap>('/api/map');
+  }
 
   getStations() {
     return this.http.get<string[]>('/api/station');
