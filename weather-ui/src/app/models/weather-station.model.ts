@@ -4,5 +4,5 @@ export interface WeatherStation {
   temperature: number;
   temperatureUnit: TemperatureUnit;
   clouds: CloudsDescription;
-  stationId: string;
+  stationName: string;
 }
