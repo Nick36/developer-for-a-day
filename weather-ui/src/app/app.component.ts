@@ -1,9 +1,9 @@
-import { WeatherStationService } from './services/weather-station.service';
-import { WeatherStation } from './models/weather-station.model';
-import { Component, OnInit } from '@angular/core';
-import { WeatherMap } from './models/weather-map.model';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, startWith, Subject, switchMap, tap } from 'rxjs';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { WeatherStationService } from './services/weather-station.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,8 @@ export class AppComponent {
 
   constructor(
     private weatherStationService: WeatherStationService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private modalService: NgbModal
   ) {
     this.weatherStations = this.triggerWeatherFetch.pipe(
       startWith(null),
@@ -30,11 +31,22 @@ export class AppComponent {
   }
 
   onAddStation() {
-    // TODO Implement Add Station
+    this.weatherStationService
+      .addWeatherStation(this.weatherForm.value.station)
+      .pipe(tap(() => this.triggerWeatherFetch.next(null)))
+      .subscribe();
   }
 
   onDeleteAllStations() {
-    // TODO Implement Delete All Stations
+    const modalRef = this.modalService.open(DeleteModalComponent);
+    modalRef.componentInstance.title = 'Delete Stations';
+    modalRef.componentInstance.description =
+      'Are you sure you want to delete all Stations?';
+    modalRef.result.then((result) => {
+      if (result) {
+        // TODO Implement Delete All Stations
+      }
+    });
   }
 
   onDeleteStation(stationId: string) {
