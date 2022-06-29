@@ -42,6 +42,8 @@ All user stories can be found in the [product backlog](https://miro.com/app/boar
 
 ## Installation Guidelines
 
+* [Git](https://git-scm.com/download) or [Git for Windows](https://gitforwindows.org/)
+
 * IDE - recommended are [IntelliJ](https://www.jetbrains.com/idea/download/) or [VS Code](https://code.visualstudio.com/Download/)
 
 * [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
